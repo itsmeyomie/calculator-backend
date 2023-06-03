@@ -19,6 +19,9 @@ public class Calculator {
         this.two = two;
     }
 
+    public Calculator() {
+    }
+
     public int getOne() {
         return one;
     }
