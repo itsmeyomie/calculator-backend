@@ -10,7 +10,7 @@ import java.io.IOException;
  *
  * @author yomie
  */
-public class Calculator {
+public final class Calculator {
 
     private static Calculator instance;
 
@@ -36,7 +36,7 @@ public class Calculator {
         return one * two;
     }
 
-    public int divide(int one, int two) throws IOException {
+    public float divide(int one, int two) throws IOException {
         if (two == 0) {
             throw new IOException("You cannot divide by Zero");
         }
