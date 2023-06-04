@@ -14,34 +14,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class Controller {
 
-    Calculator calc = new Calculator();
+    Calculator calc;
+    
 
     @GetMapping("/add")
     public int add(@RequestParam int numOne, @RequestParam int numTwo) {
-        calc.setOne(numOne);
-        calc.setTwo(numTwo);
-        return calc.add();
+        calc= Calculator.getInstance();
+     
+        return calc.add(numOne, numTwo);
+        
     }
 
     @GetMapping("/subtract")
     public int subtract(@RequestParam int numOne, @RequestParam int numTwo) {
-        calc.setOne(numOne);
-        calc.setTwo(numTwo);
-        return calc.subtract();
+        
+        return calc.subtract(numOne, numTwo);
     }
 
     @GetMapping("/multiply")
     public int multiply(@RequestParam int numOne, @RequestParam int numTwo) {
-        calc.setOne(numOne);
-        calc.setTwo(numTwo);
-        return calc.multiply();
+      
+        return calc.multiply(numOne, numTwo);
     }
 
     @GetMapping("/divide")
     public int divide(@RequestParam int numOne, @RequestParam int numTwo) throws IOException {
-        calc.setOne(numOne);
-        calc.setTwo(numTwo);
-        return calc.divide();
+       
+        return calc.divide(numOne, numTwo);
     }
 
 }

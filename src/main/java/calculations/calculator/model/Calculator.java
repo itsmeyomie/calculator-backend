@@ -5,56 +5,42 @@
 package calculations.calculator.model;
 
 import java.io.IOException;
+
 /**
  *
  * @author yomie
  */
 public class Calculator {
 
-    private int one;
-    private int two;
+    private static Calculator instance;
 
-    public Calculator(int one, int two) {
-        this.one = one;
-        this.two = two;
+    private Calculator() {
     }
 
-    public Calculator() {
+    public static Calculator getInstance() {
+        if (instance == null) {
+            instance = new Calculator();
+        }
+        return instance;
     }
 
-    public int getOne() {
-        return one;
+    public int add(int one, int two) {
+        return one + two;
     }
 
-    public void setOne(int one) {
-        this.one = one;
+    public int subtract(int one, int two) {
+        return one - two;
     }
 
-    public int getTwo() {
-        return two;
+    public int multiply(int one, int two) {
+        return one * two;
     }
 
-    public void setTwo(int two) {
-        this.two = two;
-    }
-
-    public int add() {
-        return this.one + this.two;
-    }
-
-    public int subtract() {
-        return this.one - this.two;
-    }
-
-    public int multiply() {
-        return this.one * this.two;
-    }
-
-    public int divide() throws IOException {
-        if (this.two == 0) {
+    public int divide(int one, int two) throws IOException {
+        if (two == 0) {
             throw new IOException("You cannot divide by Zero");
         }
-        return this.one /this.two;
+        return one / two;
 
     }
 }
